@@ -69,8 +69,15 @@ const Home = () => {
   const [description, setDescription] = useState("");
   console.log(title, description);
 
+
   const submitHandler = (e) => {
+
     e.preventDefault();
+// if(setTasks===""){
+//   console.log("please input your value");
+// }else{
+//   setTasks([...tasks, { title, description }]);
+// }
 
     setTasks([...tasks, { title, description }]);
     setTitle("");
@@ -109,7 +116,8 @@ const Home = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
-        <button type="submit" >ADD</button>
+        {/* { title!== ""? <button type="submit" >ADD</button>:null}  // this will disable add button untill any text input given*/}  
+        <button type="submit" disabled={ title===''} >ADD</button>
       </form>
       {tasks.map((item, index) => (
         <Task
